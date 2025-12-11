@@ -27,14 +27,16 @@ public class TaskList {
     @Column(name = "updated" , nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "taskList" , cascade = {CascadeType.REMOVE , CascadeType.PERSIST})
+    @OneToMany(mappedBy = "taskList" , cascade = {
+            CascadeType.REMOVE , CascadeType.PERSIST
+    })
     private List<Task> tasks;
 
 
     public TaskList() {
     }
 
-    public TaskList(UUID id, String title, String description, LocalDateTime createdAt, LocalDateTime updatedAt, List<Task> tasks) {
+    public TaskList(UUID id, String title, String description, List<Task> tasks , LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
