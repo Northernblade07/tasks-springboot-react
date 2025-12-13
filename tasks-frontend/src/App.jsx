@@ -1,9 +1,14 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TaskListsPage from "./pages/TaskListsPage";
+import TasksPage from "./pages/TasksPage";
 
-const App = () => {
+export default function App() {
   return (
-    <div className="">App</div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TaskListsPage />} />
+        <Route path="/task-lists/:taskListId" element={<TasksPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
